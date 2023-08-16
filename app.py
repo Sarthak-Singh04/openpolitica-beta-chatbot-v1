@@ -12,18 +12,18 @@ from langchain.utilities import WikipediaAPIWrapper
 os.environ['OPENAI_API_KEY'] = apikey
 
 # App framework
-st.title('🦜🔗 YouTube GPT Creator')
+st.title('PolicyWeb ChatBot')
 prompt = st.text_input('Plug in your prompt here') 
 
 # Prompt templates
 title_template = PromptTemplate(
     input_variables = ['topic'], 
-    template='write me a policies t about {topic}'
+    template='write me a set of policies and their descriptions about the issues described by the conversation history {topic}'
 )
 
 script_template = PromptTemplate(
     input_variables = ['title', 'wikipedia_research'], 
-    template='write me a solution about the policy : {title} while leveraging this wikipedia reserch:{wikipedia_research} '
+    template='write me a set of solutions about the issues : {title} while leveraging this wikipedia reserch:{wikipedia_research} '
 )
 
 # Memory 

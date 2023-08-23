@@ -67,31 +67,3 @@ if conversations:
     with st.expander('Conversation History'):
         st.info(conversation_memory.buffer)
 
-# if conversations:
-#     # Extract concerns only once
-#     if 'concerns' not in st.session_state:
-#         st.session_state.concerns = issue_extraction_chain.run(conversations).split(', ')
-#         st.session_state.current_concern_index = 0
-#         st.session_state.q_rankings = {}
-
-#     # If not all concerns are ranked, display the next one
-#     if st.session_state.current_concern_index < len(st.session_state.concerns):
-#         concern = st.session_state.concerns[st.session_state.current_concern_index]
-#         st.subheader(f"Rank the concern: {concern}")
-#         st.write("Please rank the concern based on its importance to you for policy creation.")
-
-#         # Show slider for current concern
-#         ranking = st.slider(concern, min(q_distribution), max(q_distribution), format="%d")
-        
-#         # Save ranking to session state
-#         st.session_state.q_rankings[concern] = ranking
-
-#         # Next concern button
-#         if st.button("Next"):
-#             st.session_state.current_concern_index += 1
-#     else:
-#         st.write("Thank you for ranking all concerns!")
-#         st.write(st.session_state.q_rankings)
-
-#     with st.expander('Conversation History'):
-#         st.info(conversation_memory.buffer)
